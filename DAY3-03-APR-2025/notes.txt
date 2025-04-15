@@ -1,0 +1,29 @@
+what is the diff between git add . and git add * ?
+
+IQ: How to remove the working area files?
+ANS:  git clean -n [ It will display what are the files are to be deleting]
+         git clean -f [Forcefully we are deleting]
+NOTE: only new files will be deleted, Not Modified one.
+
+IQ: Is it possible to move files from stg area to working area?
+ ANS: git reset [all files will be moved.
+          git reset <filename> [only particular file will move]
+
+IQ: Due to your bad commit , application is not working, pls revert back the changes How?
+
+git revert <commit id>   —> It will delete all changes in local repo only not in the remote repo.
+
+IQ: How to delete an updated code in remote repo?
+      
+       Already we deleted updated code in my local, Now you can push all files.
+    git push jio-dev master
+
+IQ: what is the diff b/w git reset and git revert?
+
+Git reset —> stg to working
+Git revert → from new commit, it will delete new file and updated contents in another file.
+
+
+What is a .gitignore file?
+
+If you are not interested to move any file, Then keep that file name inside .gitignore file

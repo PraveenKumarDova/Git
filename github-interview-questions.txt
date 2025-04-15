@@ -1,0 +1,161 @@
+Git interview questions
+=======================
+
+
+ 1. What is the difference between git pull and git fetch?
+
+   Explanation: 
+   - git fetch retrieves new data from a remote repository without merging it into your working directory.
+   - git pull fetches the data and automatically merges it into your current branch.
+
+ 2. What does git merge do and how is it different from git rebase?
+
+   Explanation: 
+   - git merge combines the histories of two branches, creating a new commit.
+   - git rebase moves or combines a sequence of commits to a new base commit, resulting in a linear history.
+
+ 3. How would you handle a conflict during a merge?
+
+   Explanation: 
+   - First, Git will mark the files with conflicts. You need to manually resolve the conflicts by editing the files, removing conflict markers, and then marking the conflict as resolved with git add <file>. Finally, commit the merge.
+
+ 4. You’ve committed some code, but now you want to change the commit message. How can you do that?
+
+   Explanation: 
+   - You can use git commit --amend to change the most recent commit message. If the commit has already been pushed, you need to force-push with git push --force.
+
+ 5. How would you revert a commit that has already been pushed to the remote repository?
+
+   Explanation: 
+   - You can use git revert <commit> to create a new commit that undoes the changes from the specified commit. This is safe for pushing to a shared repository.
+
+ 6. Explain what a fast-forward merge is.
+
+   Explanation: 
+   - A fast-forward merge happens when the current branch's head is directly ahead of the branch you want to merge, meaning no new merge commit is needed.
+
+ 7. What does git reset --hard do?
+
+   Explanation: 
+   - git reset --hard will reset the working directory and the staging area to the specified commit, discarding all changes in the working directory.
+
+ 8. How would you undo a commit that has been added to the staging area but not yet committed?
+
+   Explanation: 
+   - You can use git reset to unstage the commit. git reset <file> will unstage specific files, while git reset (no argument) unstages all files.
+
+ 9. What’s the difference between git stash and git commit?
+
+   Explanation: 
+   - git stash temporarily stores changes that you don’t want to commit yet, whereas git commit permanently saves changes to the local repository.
+
+ 10. How would you undo a git pull?
+
+   Explanation: 
+   - If you’ve just performed a git pull, and there’s a problem, you can undo it with git reset --hard HEAD~1 (reset to the previous commit).
+
+ 11. What are the differences between a Git branch and a Git tag?
+
+   Explanation: 
+   - A branch is used to track the development of features or fixes, while a tag is a reference to a specific point in history (e.g., a release).
+
+ 12. How do you create a new branch in Git?
+
+   Explanation: 
+   - You can create a new branch using the command git branch <branch-name>. You can also create and switch to the new branch using git checkout -b <branch-name>.
+
+ 13. What is the purpose of .gitignore?
+
+   Explanation: 
+   - .gitignore is used to tell Git which files and directories to ignore in version control. It helps prevent unnecessary files (like temporary or build files) from being tracked.
+
+ 14. How can you see which files have been modified in your working directory?
+
+   Explanation: 
+   - You can use git status to show the modified, deleted, and untracked files in your working directory.
+
+ 15. What is a pull request in GitHub?
+
+   Explanation: 
+   - A pull request is a way to propose changes to a repository on GitHub. It allows others to review and discuss the proposed changes before merging them.
+
+ 16. How would you merge a pull request on GitHub?
+
+   Explanation: 
+   - On GitHub, navigate to the pull request, review the changes, and click the "Merge pull request" button to merge the changes into the base branch.
+
+ 17. Explain how you can squash commits in Git.
+
+   Explanation: 
+   - Squashing commits combines multiple commits into one. You can do this using git rebase -i <commit-hash> and changing the pick command to squash or fixup for the commits you want to squash.
+
+ 18. What is a GitHub fork?
+
+   Explanation: 
+   - Forking a repository on GitHub creates a personal copy of someone else’s repository. You can make changes to it and propose them back via a pull request.
+
+ 19. Explain the difference between git clone and git fork.
+
+   Explanation: 
+   - git clone creates a local copy of a repository. git fork creates a personal copy of a repository on GitHub, allowing you to freely make changes without affecting the original.
+
+ 20. How would you delete a branch both locally and remotely?
+
+   Explanation: 
+   - To delete a local branch: git branch -d <branch-name>
+   - To delete a remote branch: git push origin --delete <branch-name>
+
+ 21. How would you create a remote repository on GitHub and link it to your local repository?
+
+   Explanation: 
+   - Create a repository on GitHub, then link it to your local repository with git remote add origin <repository-url> and push using git push -u origin <branch-name>.
+
+ 22. What is the difference between git diff and git status?
+
+   Explanation: 
+   - git diff shows the changes between the working directory and the staging area, or between commits.
+   - git status shows the current state of the working directory and staging area, including changes to be committed.
+
+ 23. How do you handle a situation where a pull request has conflicts that cannot be automatically resolved?
+
+   Explanation: 
+   - You will need to manually resolve conflicts locally by pulling the changes, resolving the conflicts in the affected files, committing the changes, and then pushing them back to the pull request.
+
+ 24. What are submodules in Git?
+
+   Explanation: 
+   - A submodule is a Git repository inside another Git repository. It allows you to include one repository as a subdirectory of another.
+
+ 25. What is the difference between git log and git reflog?
+
+   Explanation: 
+   - git log shows the commit history of the current branch.
+   - git reflog shows the history of the Git references (i.e., HEAD, branch tips), including operations that change the repository’s state.
+
+ 26. What happens when you run git push --force?
+
+   Explanation: 
+   - git push --force forces a push to a remote repository, even if it overwrites changes that have already been pushed. It should be used carefully to avoid overwriting others’ work.
+
+ 27. What are Git tags and when would you use them?
+
+   Explanation: 
+   - Tags are references to specific points in Git history, commonly used to mark release points (e.g., v1.0.0).
+
+ 28. What is the difference between git pull and git fetch in terms of the local repository?
+
+   Explanation: 
+   - git fetch retrieves the latest changes but does not affect the local working directory, whereas git pull also updates the local working directory by merging the fetched changes.
+
+ 29. How do you undo the last commit in Git?
+
+   Explanation: 
+   - You can use git reset --soft HEAD~1 to undo the last commit but keep the changes in the staging area, or git reset --hard HEAD~1 to completely undo the commit and discard changes.
+
+ 30. How can you manage multiple remotes in Git?
+
+ 
+   Explanation: 
+   - You can use git remote add <name> <url> to add multiple remotes. Use git remote -v to list remotes, and git push <remote-name> <branch-name> to push to specific remotes.
+
+These questions cover various aspects of Git and GitHub and test knowledge about handling common scenarios. They also evaluate the depth of understanding of workflows, problem-solving techniques, and best practices.
